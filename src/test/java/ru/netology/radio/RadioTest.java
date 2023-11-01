@@ -137,8 +137,8 @@ public class RadioTest {
         Radio radio = new Radio(1);
         assertEquals(0, radio.getMaxRadioStation());
 
-        Radio radio1 = new Radio(100);
-        assertEquals(99, radio1.getMaxRadioStation());
+        Radio radio1 = new Radio(10);
+        assertEquals(9, radio1.getMaxRadioStation());
 
         Radio radio2 = new Radio(10);
         assertEquals(0, radio2.getMinRadioStation());
