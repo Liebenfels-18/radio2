@@ -1,6 +1,5 @@
 package ru.netology.radio;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -50,15 +49,15 @@ public class RadioTest {
 
     @Test
     public void shouldGetToMaxStation() {
-        assertEquals(10, radio.getMaxRadioStation());
+        assertEquals(10, radio.getQuantityRadioStation());
     }
 
     @Test
     public void shouldSetMaxStation() {
-        radio.setMaxRadioStation(-1);
-        radio.setMaxRadioStation(0);
-        radio.setMaxRadioStation(11);
-        assertEquals(11, radio.getMaxRadioStation());
+        radio.setQuantityRadioStation(-1);
+        radio.setQuantityRadioStation(0);
+        radio.setQuantityRadioStation(11);
+        assertEquals(11, radio.getQuantityRadioStation());
     }
 
     @Test
@@ -135,10 +134,10 @@ public class RadioTest {
     @Test
     public void shouldCreateStationsWithLimits() {
         Radio radio = new Radio(1);
-        assertEquals(0, radio.getMaxRadioStation());
+        assertEquals(0, radio.getQuantityRadioStation());
 
         Radio radio1 = new Radio(10);
-        assertEquals(9, radio1.getMaxRadioStation());
+        assertEquals(9, radio1.getQuantityRadioStation());
 
         Radio radio2 = new Radio(10);
         assertEquals(0, radio2.getMinRadioStation());

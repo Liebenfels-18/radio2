@@ -2,7 +2,7 @@ package ru.netology.radio;
 
 public class Radio {
     private int currentStation = 10;
-    private int maxRadioStation = 10;
+    private int quantityRadioStation = 10;
     private int minRadioStation = 0;
     private int currentVolume;
     private int maxVolume = 100;
@@ -11,8 +11,8 @@ public class Radio {
     public Radio() {
     }
 
-    public Radio(int maxRadioStation) {
-        this.maxRadioStation = maxRadioStation - 1;
+    public Radio(int quantityRadioStation) {
+        this.quantityRadioStation = quantityRadioStation - 1;
     }
 
     public int getCurrentStation() {
@@ -20,17 +20,17 @@ public class Radio {
     }
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation > maxRadioStation) {
+        if (currentStation > quantityRadioStation) {
             currentStation = minRadioStation;
         }
         if (currentStation < minRadioStation) {
-            currentStation = maxRadioStation;
+            currentStation = quantityRadioStation;
         }
         this.currentStation = currentStation;
     }
 
     public void pressNextStation() {
-        if (currentStation >= maxRadioStation) {
+        if (currentStation >= quantityRadioStation) {
             setCurrentStation(minRadioStation);
         } else {
             setCurrentStation(currentStation + 1);
@@ -39,18 +39,18 @@ public class Radio {
 
     public void pressPrevStation() {
         if (currentStation <= minRadioStation) {
-            setCurrentStation(maxRadioStation);
+            setCurrentStation(quantityRadioStation);
         } else {
             setCurrentStation(currentStation - 1);
         }
     }
 
-    public int getMaxRadioStation() {
-        return maxRadioStation;
+    public int getQuantityRadioStation() {
+        return quantityRadioStation;
     }
 
-    public void setMaxRadioStation(int maxRadioStation) {
-        this.maxRadioStation = maxRadioStation;
+    public void setQuantityRadioStation(int quantityRadioStation) {
+        this.quantityRadioStation = quantityRadioStation;
     }
 
     public int getMinRadioStation() {
