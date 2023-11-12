@@ -1,8 +1,9 @@
 package ru.netology.radio;
 
 public class Radio {
-    private int currentStation = 10;
+    private int currentStation;
     private int quantityRadioStation = 10;
+    private int maxRadioStation = 9;
     private int minRadioStation = 0;
     private int currentVolume;
     private int maxVolume = 100;
@@ -12,7 +13,8 @@ public class Radio {
     }
 
     public Radio(int quantityRadioStation) {
-        this.quantityRadioStation = quantityRadioStation - 1;
+        this.quantityRadioStation = quantityRadioStation; //10
+        this.maxRadioStation = quantityRadioStation - 1; //9
     }
 
     public int getCurrentStation() {
@@ -20,37 +22,38 @@ public class Radio {
     }
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation > quantityRadioStation) {
+        if (currentStation > maxRadioStation) {
             currentStation = minRadioStation;
         }
-        if (currentStation < minRadioStation) {
-            currentStation = quantityRadioStation;
+        else if (currentStation < minRadioStation) {
+            currentStation = maxRadioStation;
         }
         this.currentStation = currentStation;
     }
 
     public void pressNextStation() {
-        if (currentStation >= quantityRadioStation) {
-            setCurrentStation(minRadioStation);
+        if (currentStation >= maxRadioStation) {
+            currentStation = minRadioStation;
         } else {
-            setCurrentStation(currentStation + 1);
+            currentStation = currentStation + 1;
         }
     }
 
     public void pressPrevStation() {
         if (currentStation <= minRadioStation) {
-            setCurrentStation(quantityRadioStation);
+            setCurrentStation(maxRadioStation);
         } else {
             setCurrentStation(currentStation - 1);
         }
     }
 
-    public int getQuantityRadioStation() {
-        return quantityRadioStation;
+    public int getMaxRadioStation() {
+        return maxRadioStation;
     }
 
     public void setQuantityRadioStation(int quantityRadioStation) {
         this.quantityRadioStation = quantityRadioStation;
+        this.maxRadioStation = quantityRadioStation - 1;
     }
 
     public int getMinRadioStation() {
